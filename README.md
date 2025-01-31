@@ -1,3 +1,3 @@
 # Receitas
 
-link: receitascasa.com
+link: html://receitascasa.com
