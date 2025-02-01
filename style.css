@@ -1,10 +1,17 @@
 body {
     font-family: "Palatino Linotype", serif;
     text-align: center;
+    background-image: url("https://cdn.pixabay.com/photo/2017/06/01/18/46/cook-2364221_1280.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Para manter a imagem fixa na tela */
+    color: #333; /* Cor do texto para melhor contraste com a imagem */
 }
 
 h1, h2, h3 {
     text-align: center;
+    color: #fff; /* Cor do texto para melhor contraste com a imagem */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto para facilitar a leitura */
 }
 
 .receita {
@@ -17,6 +24,7 @@ h1, h2, h3 {
     margin-right: auto;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente para melhor legibilidade */
 }
 
 .receita:hover {
@@ -58,5 +66,61 @@ button {
 }
 
 button:hover {
+    background-color: #45a049;
+}
+
+#adicionar-receita {
+    /* Estilos para o botão de adicionar ao banco de dados */
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#adicionar-receita:hover {
+    background-color: #45a049;
+}
+
+#formulario-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente para melhor legibilidade */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 50%;
+}
+
+#formulario-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#formulario-container input,
+#formulario-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#formulario-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#formulario-container button:hover {
     background-color: #45a049;
 }
