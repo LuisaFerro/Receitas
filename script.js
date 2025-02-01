@@ -105,6 +105,18 @@ function adicionarReceita() {
   `;
 
   // Adiciona o formulário à página
+function adicionarReceita() {
+  // Cria o formulário
+  const formulario = document.createElement("form");
+  formulario.innerHTML = `
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" name="nome" required><br><br>
+    <label for="ingredientes">Ingredientes (separados por vírgula):</label><br>
+    <textarea id="ingredientes" name="ingredientes" required></textarea><br><br>
+    <button type="submit">Adicionar</button>
+  `;
+
+  // Adiciona o formulário à página
   const escolherReceitas = document.getElementById("escolher-receitas");
   escolherReceitas.appendChild(formulario);
 
@@ -122,7 +134,7 @@ function adicionarReceita() {
       ingredientes: ingredientes
     };
 
-    // Adiciona a nova receita à lista de receitas
+    // Adiciona a nova receita ao array de receitas
     receitas.push(novaReceita);
 
     // Atualiza a lista de receitas na aba "Escolher Receitas"
@@ -130,6 +142,9 @@ function adicionarReceita() {
 
     // Remove o formulário após adicionar a receita
     formulario.remove();
+
+    // Atualiza a lista de receitas na aba "Receitas Aleatórias" (opcional)
+    exibirReceitasAleatorias();
   });
 }
     });
