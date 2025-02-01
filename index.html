@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receitas da casa</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <h1>Livro de Receitas Interativo</h1>
+
+    <div class="abas">
+        <button onclick="mostrarAba('receitas-aleatorias')">Receitas Aleatórias</button>
+        <button onclick="mostrarAba('escolher-receitas')">Escolher Receitas</button>
+    </div>
+
+    <div id="receitas-aleatorias" class="aba ativa">
+        <h2>Mostrar Receitas Aleatórias</h2>
+        <div id="lista-receitas-aleatorias">
+            </div>
+    </div>
+
+    <div id="escolher-receitas" class="aba">
+        <h2>Todas as receitas</h2>
+        <div id="lista-escolher-receitas">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
