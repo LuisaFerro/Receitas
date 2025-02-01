@@ -10,7 +10,7 @@
     <div class="abas">
         <button onclick="mostrarAba('receitas-aleatorias')">Receitas Sortidas</button>
         <button onclick="mostrarAba('escolher-receitas')">Todas as receitas</button>
-        <button id="adicionar-receita">Nova Receita</button>
+        <button id="adicionar-receita" onclick="mostrarAba('adicionar-receita-aba')">Nova Receita</button>
     </div>
 
     <div id="receitas-aleatorias" class="aba ativa">
@@ -25,7 +25,13 @@
         </div>
     </div>
 
-    <div id="formulario-container" style="display: none;">
+    <div id="adicionar-receita-aba" class="aba">
+        <h2>Adicionar Receita</h2>
+        <label for="nome-receita">Nome:</label><br>
+        <input type="text" id="nome-receita" name="nome-receita" required><br><br>
+        <label for="ingredientes-receita">Ingredientes (separados por vírgula):</label><br>
+        <textarea id="ingredientes-receita" name="ingredientes-receita" required></textarea><br><br>
+        <button id="enviar-receita">Enviar</button>
     </div>
 
     <script src="script.js"></script>
