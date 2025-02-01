@@ -124,3 +124,11 @@ button:hover {
 #formulario-container button:hover {
     background-color: #45a049;
 }
+
+.texto-branco {
+    color: #fff; /* Cor branca para o texto em geral */
+}
+
+.texto-branco label { /* Seletor para os elementos <label> dentro da classe texto-branco */
+    color: #fff; /* Cor branca para as labels */
+}
