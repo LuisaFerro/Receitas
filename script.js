@@ -94,9 +94,43 @@ function criarElementoReceita(receita) {
         }
         
 function adicionarReceita() {
-    // Aqui você pode adicionar a lógica para adicionar uma nova receita
-    // Isso pode incluir abrir um formulário, solicitar informações da receita, etc.
-    alert("Funcionalidade para adicionar receitas em desenvolvimento!");
+  // Cria o formulário
+  const formulario = document.createElement("form");
+  formulario.innerHTML = `
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" name="nome" required><br><br>
+    <label for="ingredientes">Ingredientes (separados por vírgula):</label><br>
+    <textarea id="ingredientes" name="ingredientes" required></textarea><br><br>
+    <button type="submit">Adicionar</button>
+  `;
+
+  // Adiciona o formulário à página
+  const escolherReceitas = document.getElementById("escolher-receitas");
+  escolherReceitas.appendChild(formulario);
+
+  // Adiciona o evento de envio do formulário
+  formulario.addEventListener("submit", function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Obtém os dados da receita do formulário
+    const nome = document.getElementById("nome").value;
+    const ingredientes = document.getElementById("ingredientes").value.split(",");
+
+    // Cria o objeto da receita
+    const novaReceita = {
+      nome: nome,
+      ingredientes: ingredientes
+    };
+
+    // Adiciona a nova receita à lista de receitas
+    receitas.push(novaReceita);
+
+    // Atualiza a lista de receitas na aba "Escolher Receitas"
+    exibirListaEscolherReceitas();
+
+    // Remove o formulário após adicionar a receita
+    formulario.remove();
+  });
 }
     });
 
