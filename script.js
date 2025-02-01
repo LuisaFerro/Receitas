@@ -120,37 +120,4 @@ botaoAdicionar.addEventListener("click", () => {
     }
 
     // Exibe o container do formulário
-    formularioContainer.style.display = "block";
-
-    // Cria o formulário
-    const formulario = document.createElement("form");
-    formulario.innerHTML = `
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" required><br><br>
-        <label for="ingredientes">Ingredientes (separados por vírgula):</label><br>
-        <textarea id="ingredientes" name="ingredientes" required></textarea><br><br>
-        <button type="submit">Adicionar</button>
-    `;
-
-    formularioContainer.appendChild(formulario);
-
-    // Adiciona o evento de envio do formulário
-    formulario.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const nome = document.getElementById("nome").value;
-        const ingredientes = document.getElementById("ingredientes").value.split(",");
-
-        const novaReceita = {
-            nome: nome,
-            ingredientes: ingredientes
-        };
-
-        receitas.push(novaReceita);
-
-        exibirListaEscolherReceitas();
-        formulario.remove();
-        formularioContainer.style.display = "none";
-        exibirReceitasAleatorias();
-    });
-});
+    formularioContainer
