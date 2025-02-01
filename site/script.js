@@ -92,6 +92,12 @@ function criarElementoReceita(receita) {
         } else {
             divIngredientes.style.display = "none";
         }
+        
+function adicionarReceita() {
+    // Aqui você pode adicionar a lógica para adicionar uma nova receita
+    // Isso pode incluir abrir um formulário, solicitar informações da receita, etc.
+    alert("Funcionalidade para adicionar receitas em desenvolvimento!");
+}
     });
 
     return divReceita;
