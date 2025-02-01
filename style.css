@@ -27,9 +27,15 @@ h1, h2, h3 {
 }
 
 .receita {
+    transition: transform 0.2s ease-in-out; /* Transição para a escala */
     border: 1px solid #ccc;
     margin-bottom: 10px;
     padding: 10px;
+}
+
+.receita:hover {
+  transform: scale(1.05); /* Aumenta a escala da receita em 5% */
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
 }
 
 .ingredientes {
@@ -56,3 +62,23 @@ button:hover {
   background-color: #45a049;
 }
 
+#adicionar-receita {
+  /* Estilos para o botão de adicionar ao banco de dados */
+  border: none;
+  background-color: #4CAF50; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#adicionar-receita:hover {
+  background-color: #45a049; /* Cor de fundo ao passar o mouse */
+}
