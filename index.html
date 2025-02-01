@@ -2,34 +2,28 @@
 <html>
 <head>
     <title>Receitas da casa</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
     <h1>Livro de Receitas Interativo</h1>
 
     <div class="abas">
-        <button onclick="mostrarAba('receitas-aleatorias')"> Receitas Sortidas </button>
-        <button onclick="mostrarAba('escolher-receitas')">Todas as receitas </button>
-        <button id="adicionar-receita"> Nova Receita </button>
+        <button onclick="mostrarAba('receitas-aleatorias')">Receitas Sortidas</button>
+        <button onclick="mostrarAba('escolher-receitas')">Todas as receitas</button>
+        <button id="adicionar-receita" onclick="adicionarReceita()">Nova Receita</button>
     </div>
 
     <div id="receitas-aleatorias" class="aba ativa">
         <h2>Mostrar Receitas Aleatórias</h2>
         <div id="lista-receitas-aleatorias">
-            </div>
+        </div>
     </div>
 
     <div id="escolher-receitas" class="aba">
         <h2>Todas as receitas</h2>
         <div id="lista-escolher-receitas">
-            </div>
+        </div>
     </div>
-
-    <div id="escolher-receitas" class="aba">
-    <h2>Escolher Receitas</h2>
-    <div id="lista-escolher-receitas">
-    </div>
-    <button onclick="adicionarReceita()">Adicionar Receita</button>
-</div>
 
     <script src="script.js"></script>
 </body>
