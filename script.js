@@ -44,16 +44,28 @@ function escolherReceitasAleatorias(quantidade) {
 }
 
 function exibirListaEscolherReceitas() {
-    const listaEscolherReceitas = document.getElementById("lista-escolher-receitas");
-    listaEscolherReceitas.innerHTML = ""; // Limpa a lista
+  const listaEscolherReceitas = document.getElementById("lista-escolher-receitas");
+  listaEscolherReceitas.innerHTML = ""; // Limpa a lista
 
-    receitas.forEach(receita => {
-        const divReceita = criarElementoReceita(receita);
-        divReceita.addEventListener("click", () => adicionarReceitaAleatoria(receita));
-        listaEscolherReceitas.appendChild(divReceita);
-    });
+  // Ordena as receitas por nome, em ordem alfabética
+  receitas.sort((a, b) => {
+    const nomeA = a.nome.toUpperCase(); // Converte para maiúsculas para ordenação
+    const nomeB = b.nome.toUpperCase();
+    if (nomeA < nomeB) {
+      return -1;
+    }
+    if (nomeA > nomeB) {
+      return 1;
+    }
+    return 0; // Nomes iguais
+  });
+
+  receitas.forEach(receita => {
+    const divReceita = criarElementoReceita(receita);
+    divReceita.addEventListener("click", () => adicionarReceitaAleatoria(receita));
+    listaEscolherReceitas.appendChild(divReceita);
+  });
 }
-
 function adicionarReceitaAleatoria(receita) {
     const listaReceitas = document.getElementById("lista-receitas-aleatorias");
     const divReceita = criarElementoReceita(receita);
@@ -106,6 +118,12 @@ function adicionarReceita() {
 
   // Adiciona o formulário à página
 function adicionarReceita() {
+  // Remove o formulário anterior, se existir
+  const formularioExistente = document.querySelector("form");
+  if (formularioExistente) {
+    formularioExistente.remove();
+  }
+
   // Cria o formulário
   const formulario = document.createElement("form");
   formulario.innerHTML = `
@@ -147,7 +165,8 @@ function adicionarReceita() {
     exibirReceitasAleatorias();
   });
 }
-    });
+
+    
 
     return divReceita;
 }
