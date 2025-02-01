@@ -1,7 +1,6 @@
 let receitas = [
     { nome: "Torta de Maçã", ingredientes: ["3 maçãs", "1 xícara de farinha", "1/2 xícara de açúcar", "1/4 xícara de manteiga", "1 ovo"] },
     { nome: "Bolo de Chocolate", ingredientes: ["2 xícaras de farinha", "1 xícara de açúcar", "1/2 xícara de chocolate em pó", "1 xícara de leite", "2 ovos"] },
-    // Adicione mais receitas aqui...
 ];
 
 function mostrarAba(idAba) {
@@ -125,11 +124,14 @@ botaoAdicionar.addEventListener("click", () => {
     // Cria o formulário
     const formulario = document.createElement("form");
     formulario.innerHTML = `
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" required><br><br>
-        <label for="ingredientes">Ingredientes (separados por vírgula):</label><br>
-        <textarea id="ingredientes" name="ingredientes" required></textarea><br><br>
-        <button type="submit">Adicionar</button>
+        <div class="texto-branco"> 
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome" required><br><br>
+            <label for="ingredientes">Ingredientes (separados por vírgula):</label><br>
+            <textarea id="ingredientes" name="ingredientes" required></textarea><br><br>
+            <button type="submit">Adicionar</button>
+            <p>Este texto também está em branco.</p> 
+        </div>
     `;
 
     formularioContainer.appendChild(formulario);
@@ -149,8 +151,10 @@ botaoAdicionar.addEventListener("click", () => {
         receitas.push(novaReceita);
 
         exibirListaEscolherReceitas();
+        exibirReceitasAleatorias();
+
+        formulario.reset();
         formulario.remove();
         formularioContainer.style.display = "none";
-        exibirReceitasAleatorias();
-    }); // Fechamento da função formulario.addEventListener
-}); // Fechamento da função botaoAdicionar.addEventListener
+    });
+});
