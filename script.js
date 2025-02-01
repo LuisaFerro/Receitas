@@ -20,7 +20,7 @@ function mostrarAba(idAba) {
 
 function exibirReceitasAleatorias() {
     const listaReceitas = document.getElementById("lista-receitas-aleatorias");
-    listaReceitas.innerHTML = ""; // Limpa a lista
+    listaReceitas.innerHTML = "";
 
     const receitasAleatorias = escolherReceitasAleatorias(10);
 
@@ -32,11 +32,11 @@ function exibirReceitasAleatorias() {
 
 function escolherReceitasAleatorias(quantidade) {
     const receitasAleatorias = [];
-    const receitasDisponiveis = [...receitas]; // Cria uma cópia do array de receitas
+    const receitasDisponiveis = [...receitas];
 
     for (let i = 0; i < quantidade; i++) {
         const indiceAleatorio = Math.floor(Math.random() * receitasDisponiveis.length);
-        const receitaEscolhida = receitasDisponiveis.splice(indiceAleatorio, 1)[0]; // Remove a receita escolhida para não repetir
+        const receitaEscolhida = receitasDisponiveis.splice(indiceAleatorio, 1)[0];
         receitasAleatorias.push(receitaEscolhida);
     }
 
@@ -45,11 +45,10 @@ function escolherReceitasAleatorias(quantidade) {
 
 function exibirListaEscolherReceitas() {
     const listaEscolherReceitas = document.getElementById("lista-escolher-receitas");
-    listaEscolherReceitas.innerHTML = ""; // Limpa a lista
+    listaEscolherReceitas.innerHTML = "";
 
-    // Ordena as receitas por nome, em ordem alfabética
     receitas.sort((a, b) => {
-        const nomeA = a.nome.toUpperCase(); // Converte para maiúsculas para ordenação
+        const nomeA = a.nome.toUpperCase();
         const nomeB = b.nome.toUpperCase();
         if (nomeA < nomeB) {
             return -1;
@@ -57,7 +56,7 @@ function exibirListaEscolherReceitas() {
         if (nomeA > nomeB) {
             return 1;
         }
-        return 0; // Nomes iguais
+        return 0;
     });
 
     receitas.forEach(receita => {
@@ -83,7 +82,7 @@ function criarElementoReceita(receita) {
 
     const divIngredientes = document.createElement("div");
     divIngredientes.classList.add("ingredientes");
-    divIngredientes.style.display = "none"; // Oculta os ingredientes inicialmente
+    divIngredientes.style.display = "none";
 
     const h3Ingredientes = document.createElement("h3");
     h3Ingredientes.textContent = "Ingredientes:";
@@ -110,12 +109,18 @@ function criarElementoReceita(receita) {
     return divReceita;
 }
 
-function adicionarReceita() {
+const botaoAdicionar = document.getElementById("adicionar-receita");
+const formularioContainer = document.getElementById("formulario-container");
+
+botaoAdicionar.addEventListener("click", () => {
     // Remove o formulário anterior, se existir
     const formularioExistente = document.querySelector("form");
     if (formularioExistente) {
         formularioExistente.remove();
     }
+
+    // Exibe o container do formulário
+    formularioContainer.style.display = "block";
 
     // Cria o formulário
     const formulario = document.createElement("form");
@@ -127,34 +132,25 @@ function adicionarReceita() {
         <button type="submit">Adicionar</button>
     `;
 
-    // Adiciona o formulário à página
-    const escolherReceitas = document.getElementById("escolher-receitas");
-    escolherReceitas.appendChild(formulario);
+    formularioContainer.appendChild(formulario);
 
     // Adiciona o evento de envio do formulário
     formulario.addEventListener("submit", function(event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
+        event.preventDefault();
 
-        // Obtém os dados da receita do formulário
         const nome = document.getElementById("nome").value;
         const ingredientes = document.getElementById("ingredientes").value.split(",");
 
-        // Cria o objeto da receita
         const novaReceita = {
             nome: nome,
             ingredientes: ingredientes
         };
 
-        // Adiciona a nova receita ao array de receitas
         receitas.push(novaReceita);
 
-        // Atualiza a lista de receitas na aba "Escolher Receitas"
         exibirListaEscolherReceitas();
-
-        // Remove o formulário após adicionar a receita
         formulario.remove();
-
-        // Atualiza a lista de receitas na aba "Receitas Aleatórias" (opcional)
+        formularioContainer.style.display = "none";
         exibirReceitasAleatorias();
     });
-}
+});
